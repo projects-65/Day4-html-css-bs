@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavani's Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-header {
+            background-image: url('1.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .caption {
+            padding: 15px;
+            background-color: white;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-section {
+            padding: 60px 0;
+        }
+
+        .form-control:focus {
+            border-color: #6c757d;
+            box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.25);
+        }
+
+        .btn-primary {
+            background-color: #343a40;
+            border-color: #343a40;
+        }
+
+        .btn-primary:hover {
+            background-color: #212529;
+            border-color: #212529;
+        }
+
+        footer {
+            background-color: #212529;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #adb5bd;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .featured-grid .gallery-item {
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-grid .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <p class="navbar-brand" style="margin-top:8px;"><i class="fa-solid fa-camera"></i> Bhavani's Portfolio</p>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#1">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-header text-center">
+        <div class="container">
+            <h1 class="display-4">Bhavani's Photography</h1>
+            <p class="lead">Capturing moments, creating memories</p>
+        </div>
+    </header>
+
+    <div class="container" id="1">
+        <h2 class="text-center mb-4">Featured Work</h2>
+        <div class="featured-grid">
+            <div class="gallery-item">
+                <img src="m1.jpeg" alt="Mountain Reflections">
+                <div class="caption">
+                    <h5>Mountain Reflections</h5>
+                    <p>Capturing the beauty of mountain lakes at sunrise</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="2.jpeg" alt="Urban Exploration">
+                <div class="caption">
+                    <h5>Urban Exploration</h5>
+                    <p>Finding beauty in the concrete jungle</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="3.jpeg" alt="Authentic Portraits">
+                <div class="caption">
+                    <h5>Authentic Portraits</h5>
+                    <p>Revealing the true essence of each subject</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="4.jpeg" alt="Nature Photography">
+                <div class="caption">
+                    <h5>Nature's Beauty</h5>
+                    <p>Discovering the untamed beauty of the wild</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="5.jpeg" alt="City Skyline">
+                <div class="caption">
+                    <h5>Heavy Skyline</h5>
+                    <p>All big creatures walking ina straight line.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="6.jpeg" alt="Studio Portraits">
+                <div class="caption">
+                    <h5>Studio Portraits</h5>
+                    <p>Elegant and sophisticated portrait work</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="7.jpeg" alt="Nature at Dusk">
+                <div class="caption">
+                    <h5>Nature at Dusk</h5>
+                    <p>The tranquil moments before nightfall</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="9.jpg" alt="Street Stories">
+                <div class="caption">
+                    <h5>Street Stories</h5>
+                    <p>Capturing raw and untold stories on the streets</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="10.jpeg" alt="Vintage Lens">
+                <div class="caption">
+                    <h5>Beauty of forest</h5>
+                    <p>the nature's beauty is through wild life</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="11.jpeg" alt="Vintage Lens">
+                <div class="caption">
+                    <h5>Vintage Lens</h5>
+                    <p>Exploring the landscape through a retro lens</p>
+                </div>
+            </div>
+         </div>
+    </div>
+
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="about-content text-center">
+            <h2 class="mb-4">About Me</h2>
+            <div id="aboutCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="13.jpeg" class="d-block mx-auto rounded-circle" alt="Alex Morgan Image 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="15.jpeg" class="d-block mx-auto rounded-circle" alt="Alex Morgan Image 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="16.jpeg" class="d-block mx-auto rounded-circle" alt="Alex Morgan Image 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <p class="lead">Hi, I'm Bhavani Vuppuloju, a photographer based in Hyderabad.</p>
+            <p>For over a time, I've been capturing  wild life's most precious moments through my lens. My journey in photography began during college when I first picked up a camera to document my  forest traveling across Nallamala. What started as a hobby quickly evolved into a passion and eventually, a fulfilling career.</p>
+            <p>My work spans various genres including landscape, mountains, trees, and a photographynimals. I'm particularly drawn to the interplay of light and shadow, finding beauty in both grand vistas and intimate details that often go unnoticed.</p>
+            <p>When I'm not behind the camera, I enjoy teaching photography workshops and mentoring emerging photographers. I believe that photography is not just about technical skill but about developing a unique visual voice and perspective.</p>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <h4>2+</h4>
+                        <p>Years of Experience</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <h4>50+</h4>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <h4>10</h4>
+                        <p>Awards Won</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="text-center mb-4">Contact Me</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="text-align: center;">
+        <div>
+            <h3 style="font-size: 24px; margin-bottom: 10px;">Follow us on social media:</h3>
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="display: inline; margin: 0 10px;">
+                    <a href="https://www.facebook.com" style="color: white; text-decoration: none; font-size: 18px;"><i class="fa-brands fa-facebook"></i>Facebook</a>
+                </li>
+                <li style="display: inline; margin: 0 10px;">
+                    <a href="https://twitter.com" style="color: white; text-decoration: none; font-size: 18px;"><i class="fa-brands fa-square-twitter"></i>Twitter</a>
+                </li>
+                <li style="display: inline; margin: 0 10px;">
+                    <a href="https://www.instagram.com" style="color: white; text-decoration: none; font-size: 18px;"><i class="fa-brands fa-instagram"></i>Instagram</a>
+                </li>
+            </ul>
+        </div>
+            <p>&copy;Bhavani's photography</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

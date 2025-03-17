@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Recipe Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        header h1 {
+            font-size: 48px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+        }
+
+        header {
+            background-image: url('hbg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            text-align: center;
+            color: rgb(249, 244, 249);
+            z-index: 2;
+            position: relative;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 20px;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            margin-right: 20px;
+            padding-right: 420px;
+        }
+
+        header nav ul li {
+            display: inline-block;
+        }
+
+        header nav ul li a {
+            display: inline-block;
+            padding: 90px 20px;
+            color: rgb(246, 241, 241);
+            text-decoration: none;
+            font-size: 20px;
+            font-family: 'Arial', sans-serif;
+            border: 2px solid rgb(249, 245, 245);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            color: #fcf9f9;
+        }
+
+        header nav ul li a:hover {
+            color: rgb(16, 2, 2);
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+
+        #recipes {
+            margin: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #recipes h2 {
+            font-family: 'Verdana', sans-serif;
+            font-size: 50px;
+            color: #080808;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2#q {
+            border: 3px solid black;
+            padding: 8px 15px;
+        }
+
+        .card {
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            color: #3498db;
+        }
+
+        .card-body h4 {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .card-body ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .card-body ul li {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        .carousel-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        #categories {
+            background-color: #f1f1f1;
+            padding: 40px;
+            text-align: center;
+        }
+
+        #categories h2 {
+            font-family: 'Arial', sans-serif;
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        #categories ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #categories ul li {
+            font-size: 20px;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        #categories ul li a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        #categories ul li a:hover {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        #contact {
+            padding: 40px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-family: 'Arial', sans-serif;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        #contact form {
+            display: inline-block;
+            text-align: left;
+            max-width: 500px;
+            background-color: #34495e;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        #contact form .form-control {
+            border-radius: 4px;
+        }
+
+        #contact form button {
+            padding: 15px 20px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #contact form button:hover {
+            background-color: #2980b9;
+        }
+
+        #k {
+            color: rgb(250, 248, 248);
+            font-size: 50px;
+            font-family: 'Arial', sans-serif;
+            margin-left: 0px;
+            margin-right: 0px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-dark text-white py-4">
+        <div class="container">
+            <h1 id="k" class="d-inline-block" style="padding:2px;">My Recipes</h1>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#recipes">Recipes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#categories">Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">submit your recipie</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="carouselExample" class="carousel slide carousel-fade carousel-container" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="rbg1.jpeg" class="d-block w-100" alt="Background Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="rbg2.jpg" class="d-block w-100" alt="Background Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="rbg3.jpeg" class="d-block w-100" alt="Background Image 3">
+            </div>
+        </div>
+    </div>
+
+    <section id="appetizers">
+        <h2 style="text-align:center;border:4px solid rgb(14, 13, 13); padding:4px 8px;">Appetizers</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3><a href="https://www.bing.com/videos/riverview/relatedvideo?q=samosa+recipie&&mid=F48387905423F6F696F7F48387905423F6F696F7&FORM=VCGVRP">Samosa</h3></a>
+                        </div>
+                        <img src="s.jpeg" class="card-img-top" alt="Samosa">
+                        <div class="card-body">
+                            <h4>Ingredients:</h4>
+                            <ul>
+                                <li>2 Large Potatoes</li>
+                                <li>1 Onion</li>
+                                <li>1 Green Chili</li>
+                                <li>1 tsp Cumin Seeds</li>
+                                <li>1 tsp Garam Masala</li>
+                                <li>1 tsp Turmeric Powder</li>
+                                <li>2 tbsp Chopped Cilantro</li>
+                                <li>Wonton Wrappers or Samosa Pastry</li>
+                            </ul>
+                            <h4>Instructions:</h4>
+                            <ul>
+                                <li>Boil and mash the potatoes. Set aside.</li>
+                                <li>Fry onions and green chilies in oil with cumin and spices.</li>
+                                <li>Mix in the mashed potatoes and cilantro. Let it cool.</li>
+                                <li>Fill samosa wrappers with the mixture, seal, and deep fry until golden brown.</li>
+                                <li>Serve hot with tamarind or mint chutney.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="main-course">
+        <h2 style="text-align:center;border:4px solid rgb(16, 13, 13); padding:4px 8px;">Main Course</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3><a href="https://www.bing.com/videos/riverview/relatedvideo?q=masala+dosa+recipe&&mid=01280A048C4593EB632201280A048C4593EB6322&FORM=VCGVRP">Masala Dosa</a></h3>
+                        </div>
+                        <img src="d.jpeg" class="card-img-top" alt="Masala Dosa">
+                        <div class="card-body">
+                            <h4>Ingredients:</h4>
+                            <ul>
+                                <li>1 cup Rice</li>
+                                <li>1/4 cup Urad Dal (split black lentils)</li>
+                                <li>1/4 cup Toor Dal (pigeon peas)</li>
+                                <li>1 Potato (boiled)</li>
+                                <li>1 Onion (chopped)</li>
+                                <li>1/2 tsp Mustard Seeds</li>
+                                <li>1/2 tsp Turmeric Powder</li>
+                                <li>Curry Leaves</li>
+                                <li>Green Chilies</li>
+                            </ul>
+                            <h4>Instructions:</h4>
+                            <ul>
+                                <li>Soak rice and dals overnight, then grind into a smooth batter.</li>
+                                <li>Ferment the batter overnight for the dosa consistency.</li>
+                                <li>For the filling, fry onions, mustard seeds, turmeric, and curry leaves in oil, then add boiled potatoes and spices.</li>
+                                <li>Pour a thin layer of batter onto a hot griddle, cook until crispy, and then add the potato filling. Fold and serve with coconut chutney and sambar.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3><a href="https://www.bing.com/videos/riverview/relatedvideo?&q=hyderabadi+bityani&&mid=B2C98F3B27358AFA798DB2C98F3B27358AFA798D&&FORM=VRDGAR">Hyderabadi Biryani</h3></a>
+                        </div>
+                        <img src="b.jpeg" class="card-img-top" alt="Hyderabadi Biryani">
+                        <div class="card-body">
+                            <h4>Ingredients:</h4>
+                            <ul>
+                                <li>2 cups Basmati Rice</li>
+                                <li>500g Chicken or Mutton</li>
+                                <li>1 Onion (sliced)</li>
+                                <li>1/2 cup Yogurt</li>
+                                <li>1 tbsp Ginger-Garlic Paste</li>
+                                <li>1 tsp Garam Masala</li>
+                                <li>1 tsp Red Chili Powder</li>
+                                <li>Cilantro and Mint Leaves</li>
+                                <li>Saffron (optional)</li>
+                            </ul>
+                            <h4>Instructions:</h4>
+                            <ul>
+                                <li>Marinate the chicken/mutton with yogurt, ginger-garlic paste, and spices.</li>
+                                <li>Fry onions until golden brown. Layer the cooked meat, rice, and fried onions.</li>
+                                <li>Cook the biryani using the dum (steaming) method, layering it in a sealed pot over low heat for about 30 minutes.</li>
+                                <li>Serve with raita and salad.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="desserts">
+        <h2 style="text-align:center;border:4px solid rgb(12, 11, 11); padding:4px 8px;">Desserts</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3><a href="https://www.bing.com/videos/riverview/relatedvideo?q=payasam+recipe&&mid=40360BFE6E4211C59B8640360BFE6E4211C59B86&mmscn=stvo&FORM=SVRTHV">Payasam (Kheer)</h3></a>
+                        </div>
+                        <img src="k.jpeg" class="card-img-top" alt="Payasam">
+                        <div class="card-body">
+                            <h4>Ingredients:</h4>
+                            <ul>
+                                <li>1/2 cup Rice (or Vermicelli)</li>
+                                <li>2 cups Milk</li>
+                                <li>1/4 cup Sugar</li>
+                                <li>1 tbsp Ghee</li>
+                                <li>1/4 cup Cashews and Raisins</li>
+                                <li>Cardamom Powder</li>
+                            </ul>
+                            <h4>Instructions:</h4>
+                            <ul>
+                                <li>Roast the rice (or vermicelli) in ghee until golden.</li>
+                                <li>Add milk and cook on low heat until the mixture thickens.</li>
+                                <li>Stir in sugar, cardamom, and roasted nuts. Simmer until creamy.</li>
+                                <li>Serve warm or chilled.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3><a href="https://www.bing.com/videos/riverview/relatedvideo?&q=coconut+laddo+making+video&&mid=AA723733E5A17D06CCC2AA723733E5A17D06CCC2&&FORM=VRDGAR">Coconut Ladoo</h3></a>
+                        </div>
+                        <img src="c.jpeg" class="card-img-top" alt="Coconut Ladoo">
+                        <div class="card-body">
+                            <h4>Ingredients:</h4>
+                            <ul>
+                                <li>2 cups Desiccated Coconut</li>
+                                <li>1/2 cup Sweetened Condensed Milk</li>
+                                <li>1/4 cup Milk</li>
+                                <li>1/4 tsp Cardamom Powder</li>
+                                <li>Ghee for greasing</li>
+                            </ul>
+                            <h4>Instructions:</h4>
+                            <ul>
+                                <li>Heat milk in a pan, then add sweetened condensed milk and cardamom.</li>
+                                <li>Stir in desiccated coconut and cook until it thickens.</li>
+                                <li>Let the mixture cool, then shape into small balls (ladoos) and let them set.</li>
+                                <li>Serve chilled or at room temperature.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="categories">
+        <h2>Categories</h2>
+        <ul>
+            <li><a href="#appetizers">Appetizers</a></li>
+            <li><a href="#main-course">Main Course</a></li>
+            <li><a href="#desserts">Desserts</a></li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>submit your recipie</h2>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Recipie Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter recipe name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Ingredients</label>
+                <input type="email" class="form-control" id="email" placeholder="" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">process of making</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
